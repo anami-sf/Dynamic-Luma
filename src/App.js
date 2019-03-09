@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  state={
+    cadance:''
+  }
+
+  onSetCadance = (event) => {
+    //let newState = {...this.state}
+    this.setState({cadance: event.target.value})
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <h1>-- Luma Dashboard --</h1>
+        <div>When would you like to send reminders?</div>
+        <select onChange = {this.onSetCadance}>
+          <option>Day 1</option>
+          <option >Day 2</option>
+          <option>Day 3</option>
+        </select>
+        <h2>{this.state.cadance}</h2>
       </div>
     );
   }
